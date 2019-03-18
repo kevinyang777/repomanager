@@ -29,7 +29,7 @@ class Archive
 
     //https://stackoverflow.com/questions/10174898/how-to-check-whether-a-given-string-is-valid-json-in-java/10174938
     //json xml validation
-    public boolean isJSONValid(String json) {
+    private boolean isJSONValid(String json) {
         try {
             new JSONObject(json);
         } catch (JSONException ex) {
@@ -38,7 +38,7 @@ class Archive
         return true;
     }
 
-    public boolean isXMLValid(String xml) {
+    private boolean isXMLValid(String xml) {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setValidating(false);
@@ -51,7 +51,7 @@ class Archive
         }
     }
 
-    public boolean validateCreate(Item item){
+    private boolean validateCreate(Item item){
         if(item.getItemType()==1){
             if(isJSONValid(item.getItemContent())){
                 return true;
